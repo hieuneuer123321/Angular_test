@@ -85,31 +85,64 @@
         <div class="formbg">
           <div class="formbg-inner padding-horizontal--48">
             <span class="padding-bottom--15">Sign in to your account</span>
-            <form id="stripe-login">
+            <form
+              id="stripe-login"
+              (ngSubmit)="submit()"
+              [formGroup]="infoUsers"
+            >
               <div class="field padding-bottom--24">
                 <label for="email">Email</label>
-                <input type="email" name="email" />
-              </div>
-              <div class="field padding-bottom--24">
-                <div class="grid--50-50">
-                  <label for="password">Password</label>
-                  <div class="reset-pass">
-                    <a href="#">Forgot your password?</a>
+                <input
+                  type="email"
+                  formControlName="email"
+                  required
+                  placeholder="Enter your email address"
+                />
+                <div *ngIf="f.email.errors">
+                  <!-- {{ f.email.errors.required | json }} -->
+                  <div *ngIf="f.email.errors.required">Email is required.</div>
+                  <div *ngIf="f.email.errors.email">
+                    Please, enter valid email address.
                   </div>
                 </div>
-                <input type="password" name="password" />
-              </div>
-              <div
-                class="field field-checkbox padding-bottom--24 flex-flex align-center"
-              >
-                <label for="checkbox">
-                  <input type="checkbox" name="checkbox" /> Remember Me
-                </label>
-              </div>
-              <div class="btn_login">
-                <a routerLink="document1"
-                  ><button class="button1" type="submit">Login</button></a
+                <!-- <input
+                  formControlName="email"
+                  id="email"
+                  type="text"
+                  class="form-control"
+                />
+                <div
+                  *ngIf="f.email.touched && f.email.invalid"
+                  class="alert alert-danger"
                 >
+                  <div *ngIf="f.email.errors.required">Email is required.</div>
+                  <div *ngIf="f.email.errors.email">
+                    Please, enter valid email address.
+                  </div>
+                </div> -->
+                <div class="field padding-bottom--24">
+                  <div class="grid--50-50">
+                    <label for="password">Password</label>
+                    <div class="reset-pass">
+                      <a href="#">Forgot your password?</a>
+                    </div>
+                  </div>
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    formControlName="password"
+                  />
+                </div>
+                <div
+                  class="field field-checkbox padding-bottom--24 flex-flex align-center"
+                >
+                  <label for="checkbox">
+                    <input type="checkbox" name="checkbox" /> Remember Me
+                  </label>
+                </div>
+                <div class="btn_login">
+                  <button class="button1" type="submit">Login</button>
+                </div>
               </div>
             </form>
           </div>
