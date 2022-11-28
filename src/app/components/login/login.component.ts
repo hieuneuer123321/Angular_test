@@ -13,7 +13,8 @@ import {
   FormControl,
 } from '@angular/forms';
 import { first } from 'rxjs/operators';
-
+import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/modules/user';
 // import { AlertService, AuthenticationService } from '../_services';
 @Component({
   selector: 'app-login',
@@ -61,11 +62,12 @@ export class LoginComponent implements OnInit {
   loading = false;
   submitted = false;
   returnUrl: string = '';
-
+  Myuser: any;
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router // private authenticationService: AuthenticationService, // private alertService: AlertService
+    private router: Router, // private authenticationService: AuthenticationService, // private alertService: AlertService
+    private pros: UserService
   ) {
     // if (this.authenticationService.currentUserValue) {
     //   this.router.navigate(['/']);
@@ -97,9 +99,28 @@ export class LoginComponent implements OnInit {
     //stop if form invalid
     if (this.loginForm.invalid) {
       return;
+    } else {
+      this.pros
+        .login(this.loginForm.value.username, this.loginForm.value.password)
+        .subscribe((data) => {
+          this.Myuser = data.find((user) => {
+            console.log(user);
+            console.log(this.loginForm.value.username);
+            return (
+              user.username === this.loginForm.value.username &&
+              user.password === this.loginForm.value.password
+            );
+          });
+          if (this.Myuser) {
+            console.log(this.Myuser);
+            this.router.navigate(['/home']);
+          } else {
+            alert('sai user');
+          }
+        });
     }
-    this.loading = true;
-    this.router.navigate(['/home']);
+    // this.loading = true;
+
     // this.authenticationService
     //   .login(this.f.username.value, this.f.password.value)
     //   .pipe(first())

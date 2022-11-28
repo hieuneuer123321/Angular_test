@@ -1,4 +1,4 @@
-import { Test1Component } from './../components/test1/test1.component';
+import { Test1Component } from '../components/test1/test1.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Document1Component } from '../components/document1/document1.component';

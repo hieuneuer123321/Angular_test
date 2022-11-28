@@ -14,6 +14,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AlertLoginComponent } from './components/alert-login/alert-login.component';
 import { ListUserComponent } from './components/list-user/list-user.component';
+import { DirectiveComponent } from './components/directive/directive.component';
+import { ChangeTextDirective } from './change-text.directive';
+import { NumberInputDirective } from './number-input.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +29,9 @@ import { ListUserComponent } from './components/list-user/list-user.component';
     SideComponent,
     AlertLoginComponent,
     ListUserComponent,
+    DirectiveComponent,
+    ChangeTextDirective,
+    NumberInputDirective,
   ],
   imports: [
     BrowserModule,
