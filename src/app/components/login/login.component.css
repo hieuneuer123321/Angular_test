@@ -11,6 +11,9 @@ body {
   min-height: 100%;
   background-color: #ffffff;
 } */
+.errorInput {
+  color: red;
+}
 h1 {
   letter-spacing: -1px;
 }

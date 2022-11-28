@@ -9,11 +9,18 @@ import { Test2Component } from './components/test2/test2.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', component: LauncherComponent },
-  { path: 'login/document1', component: Document1Component },
-  { path: 'document1', component: Document1Component },
-  { path: 'document2', component: Document2Component },
-  { path: 'login/test1', component: Test1Component },
-  { path: 'login/test2', component: Test2Component },
+  // { path: 'login/document1', component: Document1Component },
+  // { path: 'document1', component: Document1Component },
+  // { path: 'document2', component: Document2Component },
+  {
+    path: 'home',
+    loadChildren: () =>
+      import('./document_routing/document.module').then(
+        (module) => module.DocumentModule
+      ),
+  },
+  // { path: 'login/test1', component: Test1Component },
+  // { path: 'login/test2', component: Test2Component },
 ];
 
 @NgModule({

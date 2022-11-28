@@ -12,6 +12,8 @@ import { Test2Component } from './components/test2/test2.component';
 import { SideComponent } from './components/side/side.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AlertLoginComponent } from './components/alert-login/alert-login.component';
+import { ListUserComponent } from './components/list-user/list-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +24,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     Test1Component,
     Test2Component,
     SideComponent,
+    AlertLoginComponent,
+    ListUserComponent,
   ],
   imports: [
     BrowserModule,

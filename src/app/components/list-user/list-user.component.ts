@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../modules/user';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+
 @Component({
-  selector: 'app-document1',
-  templateUrl: './document1.component.html',
-  styleUrls: ['./document1.component.css'],
+  selector: 'app-list-user',
+  templateUrl: './list-user.component.html',
+  styleUrls: ['./list-user.component.css'],
 })
-export class Document1Component implements OnInit {
+export class ListUserComponent implements OnInit {
   data: User[] = [];
-  url: string = this.router.url;
   constructor(private pros: UserService, private router: Router) {}
 
   ngOnInit(): void {
@@ -21,7 +21,7 @@ export class Document1Component implements OnInit {
       this.data = dat;
     });
   }
-  // functionOnWhichRedirectShouldHappen() {
-  //   this.router.navigate(['/doccument/document2']);
-  // }
+  functionOnWhichRedirectShouldHappen() {
+    this.router.navigate(['/doccument/document2']);
+  }
 }
