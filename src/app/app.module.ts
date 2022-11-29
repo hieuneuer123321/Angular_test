@@ -17,6 +17,8 @@ import { ListUserComponent } from './components/list-user/list-user.component';
 import { DirectiveComponent } from './components/directive/directive.component';
 import { ChangeTextDirective } from './change-text.directive';
 import { NumberInputDirective } from './number-input.directive';
+import { AuthGuard } from './auth/auth.guard';
+import { httpInterceptorProviders } from '../app/modules/http-interceptors/index';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +42,7 @@ import { NumberInputDirective } from './number-input.directive';
     FormsModule,
     ReactiveFormsModule,
   ],
+  // providers: [httpInterceptorProviders],
   providers: [],
   bootstrap: [AppComponent],
 })

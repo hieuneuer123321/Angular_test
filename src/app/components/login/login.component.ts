@@ -15,6 +15,7 @@ import {
 import { first } from 'rxjs/operators';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/modules/user';
+import { AuthService } from 'src/app/services/auth.service';
 // import { AlertService, AuthenticationService } from '../_services';
 @Component({
   selector: 'app-login',
@@ -58,6 +59,8 @@ export class LoginComponent implements OnInit {
   //     this.validateAllFormFields(this.infoUsers);
   //   }
   // }
+  error!: {};
+  loginError!: string;
   loginForm!: FormGroup;
   loading = false;
   submitted = false;
@@ -67,7 +70,8 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router, // private authenticationService: AuthenticationService, // private alertService: AlertService
-    private pros: UserService
+    private pros: UserService,
+    private authService: AuthService
   ) {
     // if (this.authenticationService.currentUserValue) {
     //   this.router.navigate(['/']);
@@ -94,33 +98,57 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    // reset alerts on submitted
-    // this.alertService.clear();
-    //stop if form invalid
-    if (this.loginForm.invalid) {
-      return;
-    } else {
-      this.pros
-        .login(this.loginForm.value.username, this.loginForm.value.password)
-        .subscribe((data) => {
+    this.authService
+      .login(this.loginForm.value.username, this.loginForm.value.password)
+      .subscribe(
+        (data) => {
           this.Myuser = data.find((user) => {
-            console.log(user);
-            console.log(this.loginForm.value.username);
             return (
               user.username === this.loginForm.value.username &&
               user.password === this.loginForm.value.password
             );
           });
           if (this.Myuser) {
-            console.log(this.Myuser);
+            const localStorageUser = {
+              userId: this.Myuser.id,
+              auth: this.Myuser.auth,
+            };
+            localStorage.setItem(
+              'currentUser',
+              JSON.stringify(localStorageUser)
+            );
             this.router.navigate(['/home']);
           } else {
-            alert('sai user');
+            this.loginError = 'Username or password is incorrect.';
           }
-        });
-    }
-    // this.loading = true;
+        },
+        (error) => (this.error = error)
+      );
 
+    // this.submitted = true;
+    // if (this.loginForm.invalid) {
+    //   return;
+    // } else {
+    //   this.pros
+    //     .login(this.loginForm.value.username, this.loginForm.value.password)
+    //     .subscribe((data) => {
+    //       this.Myuser = data.find((user) => {
+    //         console.log(user);
+    //         console.log(this.loginForm.value.username);
+    //         return (
+    //           user.username === this.loginForm.value.username &&
+    //           user.password === this.loginForm.value.password
+    //         );
+    //       });
+    //       if (this.Myuser) {
+    //         console.log(this.Myuser);
+    //         this.router.navigate(['/home']);
+    //       } else {
+    //         alert('sai user');
+    //       }
+    //     });
+    // }
+    // this.loading = true;
     // this.authenticationService
     //   .login(this.f.username.value, this.f.password.value)
     //   .pipe(first())

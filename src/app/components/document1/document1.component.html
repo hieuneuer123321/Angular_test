@@ -73,4 +73,17 @@
     </div>
   </div>
 </nav> -->
-<app-list-user></app-list-user>
+<table id="customers">
+  <tr>
+    <th style="width: 5%">ID</th>
+    <th>Username</th>
+    <th>Password</th>
+    <th>Auth</th>
+  </tr>
+  <tr *ngFor="let item of data">
+    <td>{{ item.id }}</td>
+    <td>{{ item.username }}</td>
+    <td>{{ item.password }}</td>
+    <td>{{ item.auth }}</td>
+  </tr>
+</table>

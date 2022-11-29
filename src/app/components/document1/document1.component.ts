@@ -16,8 +16,14 @@ export class Document1Component implements OnInit {
     this.getAll();
   }
   getAll() {
+    console.log(this.pros.getAll().subscribe());
+
     this.pros.getAll().subscribe((dat: any) => {
-      console.log(dat);
+      if (dat) {
+        console.log(dat);
+      } else {
+        console.log('test');
+      }
       this.data = dat;
     });
   }

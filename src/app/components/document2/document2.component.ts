@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { User } from 'src/app/modules/user';
+import { apiUrl } from 'src/app/modules/aip_url';
 @Component({
   selector: 'app-document2',
   templateUrl: './document2.component.html',

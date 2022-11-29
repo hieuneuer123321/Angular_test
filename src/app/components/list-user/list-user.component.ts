@@ -13,14 +13,14 @@ export class ListUserComponent implements OnInit {
   constructor(private pros: UserService, private router: Router) {}
 
   ngOnInit(): void {
-    this.getAll();
+    // this.getAll();
   }
-  getAll() {
-    this.pros.getAll().subscribe((dat: any) => {
-      console.log(dat);
-      this.data = dat;
-    });
-  }
+  // getAll() {
+  //   this.pros.getAll().subscribe((dat: any) => {
+  //     console.log(dat);
+  //     this.data = dat;
+  //   });
+  // }
   functionOnWhichRedirectShouldHappen() {
     this.router.navigate(['/doccument/document2']);
   }
