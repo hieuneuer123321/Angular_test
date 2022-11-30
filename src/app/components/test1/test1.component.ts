@@ -9,15 +9,11 @@ export class Test1Component implements OnInit, OnChanges {
   Color: string = 'red';
   Width: String = '100px';
   Height: String = '100px';
-  Number: Number = 10;
+  Number: number = 10;
   constructor() {}
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-  }
+  ngOnChanges(changes: SimpleChanges): void {}
   ngOnInit(): void {}
   countChangedHandler(data: string): void {
-    console.log(data);
-    console.log(data[0]);
     this.Color = data[0];
     this.Number = Number(data[1]);
     this.Width = data[2];

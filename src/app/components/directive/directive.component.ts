@@ -16,27 +16,31 @@ import {
 })
 export class DirectiveComponent implements OnInit, OnChanges {
   @Input() Mycolor!: string;
-  @Input() Mynumber!: Number;
+  @Input() Mynumber!: number;
   @Input() Mywidth!: String;
   @Input() Myheight!: String;
   @ViewChild('closebutton') closebutton!: any;
-  @Output() countChanged: EventEmitter<any> = new EventEmitter();
-
+  // @Output() countChanged: EventEmitter<any> = new EventEmitter();
+  // a = new Number(1);
+  a!: number;
+  fakeArray!: any;
   constructor() {}
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-    if (!changes.Mycolor.firstChange) {
-      alert('First change: ');
-    }
+  ngOnChanges(changes: SimpleChanges): void {}
+  ngOnInit(): void {
+    this.a = this.Mynumber;
+    this.fakeArray = new Array(this.a);
   }
-  ngOnInit(): void {}
   onSubmit() {
-    this.countChanged.emit([
-      this.Mycolor,
-      this.Mynumber,
-      this.Mywidth,
-      this.Myheight,
-    ]);
+    // this.countChanged.emit([
+    //   this.Mycolor,
+    //   this.Mynumber,
+    //   this.Mywidth,
+    //   this.Myheight,
+    // ]);
+    console.log(typeof 10);
+    console.log(typeof this.Mynumber);
+    console.log(typeof this.a);
+    console.log(this.fakeArray);
     this.closebutton.nativeElement.click(); // đóng modal
   }
 }

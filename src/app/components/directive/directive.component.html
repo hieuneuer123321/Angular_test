@@ -2,9 +2,10 @@
 <p>{{ Mynumber }}</p>
 <p>{{ Mywidth }}</p>
 <p>{{ Myheight }}</p>
-
+<!-- {{ b }} -->
 <div style="display: flex; flex-wrap: wrap; justify-content: space-around">
   <div
+    *ngFor="let a of fakeArray"
     class="col-6 col-md-4"
     appChangeText
     class="item"
@@ -13,86 +14,6 @@
     inputHeight="{{ Myheight }}"
     data-bs-toggle="modal"
     data-bs-target="#staticBackdrop"
-  ></div>
-  <div
-    class="col-6 col-md-4"
-    appChangeText
-    class="item"
-    inputColor="{{ Mycolor }}"
-    inputWidth="{{ Mywidth }} "
-    inputHeight="{{ Myheight }}"
-    data-bs-toggle="modal"
-    data-bs-target="#staticBackdrop"
-  ></div>
-  <div
-    class="col-6 col-md-4"
-    appChangeText
-    class="item"
-    inputColor="{{ Mycolor }}"
-    inputWidth="{{ Mywidth }} "
-    inputHeight="{{ Myheight }}"
-    data-bs-toggle="modal"
-    data-bs-target="#staticBackdrop"
-  ></div>
-  <div
-    class="col-6 col-md-4"
-    appChangeText
-    class="item"
-    inputColor="{{ Mycolor }}"
-    inputWidth="{{ Mywidth }} "
-    inputHeight="{{ Myheight }}"
-    data-bs-toggle="modal"
-    data-bs-target="#staticBackdrop"
-  ></div>
-  <div
-    class="col-6 col-md-4"
-    appChangeText
-    class="item"
-    inputColor="{{ Mycolor }}"
-    inputWidth="{{ Mywidth }} "
-    inputHeight="{{ Myheight }}"
-    data-bs-toggle="modal"
-    data-bs-target="#staticBackdrop"
-  ></div>
-  <div
-    class="col-6 col-md-4"
-    appChangeText
-    class="item"
-    inputColor="{{ Mycolor }}"
-    inputWidth="{{ Mywidth }} "
-    inputHeight="{{ Myheight }}"
-    data-bs-toggle="modal"
-    data-bs-target="#staticBackdrop"
-  ></div>
-  <div
-    class="col-6 col-md-4"
-    appChangeText
-    class="item"
-    inputColor="{{ Mycolor }}"
-    inputWidth="{{ Mywidth }} "
-    inputHeight="{{ Myheight }}"
-    data-bs-toggle="modal"
-    data-bs-target="#staticBackdrop"
-  ></div>
-  <div
-    class="col-6 col-md-4"
-    appChangeText
-    class="item"
-    inputColor="{{ Mycolor }}"
-    inputWidth="{{ Mywidth }} "
-    inputHeight="{{ Myheight }}"
-    data-bs-toggle="modal"
-    data-bs-target="#staticBackdrop"
-  ></div>
-  <div
-    data-bs-toggle="modal"
-    data-bs-target="#staticBackdrop"
-    class="col-6 col-md-4"
-    appChangeText
-    class="item"
-    inputColor="{{ Mycolor }}"
-    inputWidth="{{ Mywidth }} "
-    inputHeight="{{ Myheight }}"
   ></div>
 </div>
 
