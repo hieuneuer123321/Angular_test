@@ -11,6 +11,8 @@
     inputColor="{{ Mycolor }}"
     inputWidth="{{ Mywidth }} "
     inputHeight="{{ Myheight }}"
+    data-bs-toggle="modal"
+    data-bs-target="#staticBackdrop"
   ></div>
   <div
     class="col-6 col-md-4"
@@ -19,6 +21,8 @@
     inputColor="{{ Mycolor }}"
     inputWidth="{{ Mywidth }} "
     inputHeight="{{ Myheight }}"
+    data-bs-toggle="modal"
+    data-bs-target="#staticBackdrop"
   ></div>
   <div
     class="col-6 col-md-4"
@@ -27,6 +31,8 @@
     inputColor="{{ Mycolor }}"
     inputWidth="{{ Mywidth }} "
     inputHeight="{{ Myheight }}"
+    data-bs-toggle="modal"
+    data-bs-target="#staticBackdrop"
   ></div>
   <div
     class="col-6 col-md-4"
@@ -35,6 +41,8 @@
     inputColor="{{ Mycolor }}"
     inputWidth="{{ Mywidth }} "
     inputHeight="{{ Myheight }}"
+    data-bs-toggle="modal"
+    data-bs-target="#staticBackdrop"
   ></div>
   <div
     class="col-6 col-md-4"
@@ -43,6 +51,8 @@
     inputColor="{{ Mycolor }}"
     inputWidth="{{ Mywidth }} "
     inputHeight="{{ Myheight }}"
+    data-bs-toggle="modal"
+    data-bs-target="#staticBackdrop"
   ></div>
   <div
     class="col-6 col-md-4"
@@ -51,6 +61,8 @@
     inputColor="{{ Mycolor }}"
     inputWidth="{{ Mywidth }} "
     inputHeight="{{ Myheight }}"
+    data-bs-toggle="modal"
+    data-bs-target="#staticBackdrop"
   ></div>
   <div
     class="col-6 col-md-4"
@@ -59,6 +71,8 @@
     inputColor="{{ Mycolor }}"
     inputWidth="{{ Mywidth }} "
     inputHeight="{{ Myheight }}"
+    data-bs-toggle="modal"
+    data-bs-target="#staticBackdrop"
   ></div>
   <div
     class="col-6 col-md-4"
@@ -67,5 +81,99 @@
     inputColor="{{ Mycolor }}"
     inputWidth="{{ Mywidth }} "
     inputHeight="{{ Myheight }}"
+    data-bs-toggle="modal"
+    data-bs-target="#staticBackdrop"
   ></div>
+  <div
+    data-bs-toggle="modal"
+    data-bs-target="#staticBackdrop"
+    class="col-6 col-md-4"
+    appChangeText
+    class="item"
+    inputColor="{{ Mycolor }}"
+    inputWidth="{{ Mywidth }} "
+    inputHeight="{{ Myheight }}"
+  ></div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="staticBackdrop"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">
+          Input Information
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          #closebutton
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3 row">
+          <label for="color" class="col-sm-2 col-form-label">Color</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="color"
+              [(ngModel)]="Mycolor"
+            />
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="number" class="col-sm-2 col-form-label">Number</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="number"
+              [(ngModel)]="Mynumber"
+            />
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="width" class="col-sm-2 col-form-label">Width</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="width"
+              [(ngModel)]="Mywidth"
+            />
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="height" class="col-sm-2 col-form-label">Height</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="height"
+              [(ngModel)]="Myheight"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary" (click)="onSubmit()">
+          Update
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

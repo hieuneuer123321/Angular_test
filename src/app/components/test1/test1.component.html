@@ -4,4 +4,83 @@
   [Mynumber]="Number"
   [Mywidth]="Width"
   [Myheight]="Height"
+  (countChanged)="countChangedHandler($event)"
 ></app-directive>
+<!-- <div
+  class="modal fade"
+  id="staticBackdrop"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">
+          Input Information
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onSubmit()"></form>
+        <div class="mb-3 row">
+          <label for="color" class="col-sm-2 col-form-label">Color</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="color"
+              [ngModel]="Color"
+            />
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="number" class="col-sm-2 col-form-label">Number</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="number"
+              [ngModel]="Number"
+            />
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="width" class="col-sm-2 col-form-label">Width</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="width"
+              [ngModel]="Width"
+            />
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="height" class="col-sm-2 col-form-label">Height</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="height"
+              [ngModel]="Height"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </div>
+</div> -->
