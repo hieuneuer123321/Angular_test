@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { User } from '../../modules/user';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
@@ -10,18 +10,36 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ListUserComponent implements OnInit {
   data: User[] = [];
+  url: string = this.router.url;
+  userId: any = localStorage.getItem('currentUser')
+    ? JSON.parse(localStorage.getItem('currentUser') || '{}')
+    : false;
   constructor(private pros: UserService, private router: Router) {}
 
   ngOnInit(): void {
-    // this.getAll();
+    this.getAll();
   }
-  // getAll() {
-  //   this.pros.getAll().subscribe((dat: any) => {
-  //     console.log(dat);
-  //     this.data = dat;
-  //   });
+  getAll() {
+    console.log(this.pros.getAll().subscribe());
+
+    this.pros.getAll().subscribe((dat: any) => {
+      if (dat) {
+        console.log(dat);
+      } else {
+        console.log('test');
+      }
+      this.data = dat;
+    });
+  }
+  // functionOnWhichRedirectShouldHappen() {
+  //   this.router.navigate(['/doccument/document2']);
   // }
-  functionOnWhichRedirectShouldHappen() {
-    this.router.navigate(['/doccument/document2']);
-  }
+
+  // ngOnInit(): void {
+  //   if (localStorage.getItem('currentUser')) {
+  //     this.userId = localStorage.getItem('currentUser');
+  //   } else {
+  //     this.userId = false;
+  //   }
+  // }
 }
