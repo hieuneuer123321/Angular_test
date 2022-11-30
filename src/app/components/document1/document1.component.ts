@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { User } from '../../modules/user';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
@@ -10,6 +10,9 @@ import { UserService } from 'src/app/services/user.service';
 export class Document1Component implements OnInit {
   data: User[] = [];
   url: string = this.router.url;
+  userId: any = localStorage.getItem('currentUser')
+    ? JSON.parse(localStorage.getItem('currentUser') || '{}')
+    : false;
   constructor(private pros: UserService, private router: Router) {}
 
   ngOnInit(): void {
@@ -30,4 +33,19 @@ export class Document1Component implements OnInit {
   // functionOnWhichRedirectShouldHappen() {
   //   this.router.navigate(['/doccument/document2']);
   // }
+
+  // ngOnInit(): void {
+  //   if (localStorage.getItem('currentUser')) {
+  //     this.userId = localStorage.getItem('currentUser');
+  //   } else {
+  //     this.userId = false;
+  //   }
+  // }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (localStorage.getItem('currentUser')) {
+      this.userId = localStorage.getItem('currentUser');
+    } else {
+      this.userId = false;
+    }
+  }
 }

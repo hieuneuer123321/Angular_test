@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import Swal from 'sweetalert2';
 import { Router, RouterModule, Routes } from '@angular/router';
 @Component({
@@ -6,7 +12,8 @@ import { Router, RouterModule, Routes } from '@angular/router';
   templateUrl: './side.component.html',
   styleUrls: ['./side.component.css'],
 })
-export class SideComponent implements OnInit {
+export class SideComponent implements OnInit, OnChanges {
+  @Input() userLogin: any;
   userLoginAuth: any;
   auth = '';
   url: string = this.router.url;
@@ -40,5 +47,8 @@ export class SideComponent implements OnInit {
       );
       this.auth = this.userLoginAuth.auth.toString();
     }
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
   }
 }

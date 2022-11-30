@@ -22,7 +22,7 @@ const routes: Routes = [
         (module) => module.DocumentModule
       ),
   },
-  { path: '**', redirectTo: '' },
+  { path: '**', redirectTo: 'home' },
   // { path: 'login/test1', component: Test1Component },
   // { path: 'login/test2', component: Test2Component },
 ];

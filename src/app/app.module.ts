@@ -16,7 +16,6 @@ import { AlertLoginComponent } from './components/alert-login/alert-login.compon
 import { ListUserComponent } from './components/list-user/list-user.component';
 import { DirectiveComponent } from './components/directive/directive.component';
 import { ChangeTextDirective } from './change-text.directive';
-import { NumberInputDirective } from './number-input.directive';
 import { AuthGuard } from './auth/auth.guard';
 import { httpInterceptorProviders } from '../app/modules/http-interceptors/index';
 @NgModule({
@@ -33,7 +32,6 @@ import { httpInterceptorProviders } from '../app/modules/http-interceptors/index
     ListUserComponent,
     DirectiveComponent,
     ChangeTextDirective,
-    NumberInputDirective,
   ],
   imports: [
     BrowserModule,

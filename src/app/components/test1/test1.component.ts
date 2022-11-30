@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Test1Component implements OnInit {
   Color: string = 'red';
-  numbers: Number = 10;
+  Width: String = '100px';
+  Height: String = '100px';
+  Number: Number = 10;
   constructor() {}
 
   ngOnInit(): void {}

@@ -8,16 +8,13 @@ import { Component, Input, OnInit } from '@angular/core';
 export class DirectiveComponent implements OnInit {
   @Input() Mycolor!: string;
   @Input() Mynumber!: Number;
-  innerHTML: string = '  <div class="item item5"></div>';
+  @Input() Mywidth!: String;
+  @Input() Myheight!: String;
 
   constructor() {}
 
   ngOnInit(): void {
     // this.test();
   }
-  test() {
-    for (let index = 0; index < this.Mynumber; index++) {
-      this.innerHTML += '  <div class="item item5"></div>';
-    }
-  }
+  test() {}
 }
