@@ -50,9 +50,10 @@ export class DirectiveComponent implements OnInit, OnChanges {
     const arrayTemp = [...this.ArrBlock];
     const blockUpdate: Block = arrayTemp[this.index];
     blockUpdate.color = this.Mycolor;
-    blockUpdate.number = new Array(this.Mynumber);
+    blockUpdate.number = new Array(Number(this.Mynumber));
     blockUpdate.width = this.Mywidth;
     blockUpdate.height = this.Myheight;
+    this.ArrBlock[this.index] = blockUpdate;
     console.log(blockUpdate);
     this.closebutton.nativeElement.click(); // đóng modal
   }
