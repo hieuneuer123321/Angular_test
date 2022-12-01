@@ -13,7 +13,7 @@ export class Document2Component implements OnInit {
   password: string = '';
   auth: string = '';
   password_config: string = '';
-  powers: string[] = ['Admin', 'Manager', 'User'];
+  powers: string[] = ['User1', 'User2'];
 
   constructor(private pros: UserService, private router: Router) {}
 
