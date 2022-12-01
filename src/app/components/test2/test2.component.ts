@@ -8,7 +8,17 @@ import { Router, RouterModule, Routes } from '@angular/router';
 })
 export class Test2Component implements OnInit {
   constructor(private router: Router) {}
+  style = {
+    margin: '20px',
+    backgroundColor: 'red',
+    width: '200px',
+    height: '200px',
+  };
 
+  styleDinamic() {
+    this.style.width = '400px';
+    this.style.backgroundColor = 'black';
+  }
   ngOnInit(): void {}
   click() {
     // if (localStorage.getItem('currentUser')) {

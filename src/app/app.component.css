@@ -1,0 +1,15 @@
+:host(.dark-theme) {
+  --canvas-background-color: #151512;
+  --canvas-color: #f8f8f2;
+  --canvas-border-color: #42433f;
+  --canvas-gutter-background-color: #20211c;
+  --canvas-gutter-color: #999999;
+
+  --panel-background-color: #20211c;
+  --panel-color: #999999;
+  --panel-input-background-color: #2e2f28;
+  --panel-input-color: #dadada;
+  --panel-button-background-color: #121212;
+  --panel-button-color: #dadada;
+  --panel-button-border-color: #333333;
+}

@@ -17,6 +17,7 @@ import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/modules/user';
 import { AuthService } from 'src/app/services/auth.service';
 // import { AlertService, AuthenticationService } from '../_services';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -59,6 +60,7 @@ export class LoginComponent implements OnInit {
   //     this.validateAllFormFields(this.infoUsers);
   //   }
   // }
+
   error!: {};
   loginError!: string;
   loginForm!: FormGroup;
