@@ -15,6 +15,7 @@ export class AlertLoginComponent implements OnInit {
   // username!: string;
   // password!: string;
   // auth!: string;
+  message!: string;
   powers: string[] = ['User1', 'User2'];
   // userId!: number;
   constructor(
@@ -34,11 +35,16 @@ export class AlertLoginComponent implements OnInit {
     this.UserService.updateUser(UserUpdate.id, UserUpdate).subscribe((data) => {
       console.log(data);
     });
+    this.UserService.changeMessage('Đã Update User ' + UserUpdate.username);
     this.route.navigate(['/home']);
   }
   ngOnInit() {
     this.getUserById(this.router.snapshot.params['userId']);
+    this.UserService.currentMessage.subscribe(
+      (message) => (this.message = message)
+    );
   }
+
   getUserById(id: string) {
     this.UserService.getUsers(id).subscribe((data: any) => {
       this.User = data;

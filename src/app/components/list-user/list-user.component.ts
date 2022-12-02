@@ -10,15 +10,24 @@ import Swal from 'sweetalert2';
   styleUrls: ['./list-user.component.css'],
 })
 export class ListUserComponent implements OnInit {
+  message!: string;
+  isLoading: Boolean = true;
   data: User[] = [];
   url: string = this.router.url;
   userId: any = localStorage.getItem('currentUser')
     ? JSON.parse(localStorage.getItem('currentUser') || '{}')
     : false;
-  constructor(private pros: UserService, private router: Router) {}
+  constructor(
+    private pros: UserService,
+    private router: Router,
+    private messageService: UserService
+  ) {}
 
   ngOnInit(): void {
     this.getAll();
+    this.messageService.currentMessage.subscribe(
+      (message) => (this.message = message)
+    );
   }
   deleteUser(id: number) {
     Swal.fire({
@@ -38,6 +47,7 @@ export class ListUserComponent implements OnInit {
           console.log(user);
           const arrTemp = [...this.data];
           this.data = arrTemp.filter((item) => item.id !== user.id);
+          this.message = `Đã xóa User`;
         });
       }
     });
@@ -52,6 +62,7 @@ export class ListUserComponent implements OnInit {
         console.log('test');
       }
       this.data = dat;
+      this.isLoading = false;
     });
   }
   // functionOnWhichRedirectShouldHappen() {

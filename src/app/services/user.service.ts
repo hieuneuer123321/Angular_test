@@ -14,6 +14,8 @@ export class UserService {
     headers: new HttpHeaders({ 'Content-Type': 'Application/json' }),
   };
   apiUrl = apiUrl;
+  messageSource = new BehaviorSubject('');
+  currentMessage = this.messageSource.asObservable();
 
   constructor(private http: HttpClient) {}
 
@@ -32,5 +34,9 @@ export class UserService {
   }
   deleteUser(userId: any): Observable<User> {
     return this.http.delete<User>(`${this.apiUrl}/${userId}`).pipe();
+  }
+
+  changeMessage(message: string) {
+    this.messageSource.next(message);
   }
 }
