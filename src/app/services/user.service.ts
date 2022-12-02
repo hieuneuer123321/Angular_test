@@ -23,4 +23,14 @@ export class UserService {
   addUser(user: User): Observable<User[]> {
     return this.http.post<User[]>(this.apiUrl, user).pipe();
   }
+  updateUser(userId: any, user: User): Observable<User[]> {
+    console.log(user);
+    return this.http.put<User[]>(`${this.apiUrl}/${userId}`, user).pipe();
+  }
+  getUsers(userId: any): Observable<User> {
+    return this.http.get<User>(`${this.apiUrl}/${userId}`).pipe();
+  }
+  deleteUser(userId: any): Observable<User> {
+    return this.http.delete<User>(`${this.apiUrl}/${userId}`).pipe();
+  }
 }

@@ -1,1 +1,44 @@
-<p>{{ message.text }}</p>
+{{ User | json }}
+
+<div class="container" style="width: 40%; margin-top: 20px">
+  <h1>User Updateting</h1>
+  <form (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="firstname">Email</label><br />
+      <input
+        type="email"
+        name="firstname"
+        class="form-control"
+        required
+        [(ngModel)]="User.username"
+      />
+    </div>
+    <pre></pre>
+    <div class="form-group">
+      <label for="lastname">Password</label><br />
+      <input
+        type="password"
+        name="password"
+        class="form-control"
+        required
+        [(ngModel)]="User.password"
+      />
+    </div>
+    <pre></pre>
+    <pre></pre>
+    <div class="form-group">
+      <label for="password">Auth</label><br />
+      <select
+        class="form-control"
+        id="power"
+        required
+        [(ngModel)]="User.auth"
+        name="power"
+      >
+        <option *ngFor="let pow of powers" [value]="pow">{{ pow }}</option>
+      </select>
+    </div>
+    <pre></pre>
+    <button class="btn btn-primary" type="submit">Update User</button>
+  </form>
+</div>

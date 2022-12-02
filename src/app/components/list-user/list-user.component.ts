@@ -2,6 +2,7 @@ import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { User } from '../../modules/user';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-list-user',
@@ -18,6 +19,28 @@ export class ListUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAll();
+  }
+  deleteUser(id: number) {
+    Swal.fire({
+      title: '<strong>Are you sure?</strong>',
+      icon: 'warning',
+      html: `You really can't go back after this, We can't retrieve it either!`,
+      showCloseButton: true,
+      showCancelButton: true,
+      focusConfirm: false,
+      reverseButtons: true,
+      focusCancel: true,
+      cancelButtonText: `Cancel`,
+      confirmButtonText: `Delete User`,
+    }).then((result) => {
+      if (result.value) {
+        this.pros.deleteUser(id).subscribe((user) => {
+          console.log(user);
+          const arrTemp = [...this.data];
+          this.data = arrTemp.filter((item) => item.id !== user.id);
+        });
+      }
+    });
   }
   getAll() {
     console.log(this.pros.getAll().subscribe());

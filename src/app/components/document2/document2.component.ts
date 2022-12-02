@@ -30,7 +30,7 @@ export class Document2Component implements OnInit {
       this.pros.addUser(User).subscribe((data) => {
         console.log(data);
       });
-      this.router.navigate(['home/document1']);
+      this.router.navigate(['home']);
     }
   }
 }
